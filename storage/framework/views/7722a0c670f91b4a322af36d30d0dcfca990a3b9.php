@@ -12,58 +12,8 @@
 <!-- Theme Customizer-->
 <script src="<?php echo e(asset('assets/js/layout-storage.js')); ?>"></script>
 
-<script>
-    "use strict";
-$(".customizer-modal").append('' +
-'<form method="post" action="<?php echo e(route("theme.settings")); ?>"><?php echo e(csrf_field()); ?><div class="customizer-layer"></div>' +
-    '<div class="customizer-action bg-primary"><i data-feather="settings"></i>' +
-        '</div><div class="theme-cutomizer"> ' +
-        '<div class="customizer-header"> <h4><?php echo e(__('Theme Setting')); ?></h4> ' +
-            '<div class="close-customizer"><i data-feather="x"></i></div>' +
-            '</div>' +
-            '<input type="hidden" name="theme_color" id="theme_color" value="<?php echo e($settings['theme_color']); ?>">'+
-            '<input type="hidden" name="sidebar_mode" id="sidebar_mode" value="<?php echo e($settings['sidebar_mode']); ?>">'+
-            '<input type="hidden" name="layout_direction" id="layout_direction" value="<?php echo e($settings['layout_direction']); ?>">'+
-            '<input type="hidden" name="layout_mode" id="layout_mode" value="<?php echo e($settings['layout_mode']); ?>">'+
-        '<div class="customizer-body"> ' +
-            '<div class="cutomize-group"> ' +
-                '<h6 class="customizer-title"><?php echo e(__('Theme Color')); ?></h6> ' +
-                '<ul class="customizeoption-list themecolor-list" > ' +
-                    '<li class="color1 <?php echo e($settings['theme_color']=='color1'?'active-mode':''); ?>"></li>' +
-                    '<li class="color2 <?php echo e($settings['theme_color']=='color2'?'active-mode':''); ?>"></li>' +
-                    '<li class="color3 <?php echo e($settings['theme_color']=='color3'?'active-mode':''); ?>"></li>' +
-                    '<li class="color4 <?php echo e($settings['theme_color']=='color4'?'active-mode':''); ?>"></li>' +
-                    '<li class="color5 <?php echo e($settings['theme_color']=='color5'?'active-mode':''); ?>"></li>' +
-                    '<li class="color6 <?php echo e($settings['theme_color']=='color6'?'active-mode':''); ?>"></li>' +
-                    '</ul> ' +
-                '</div>' +
-            '<div class="cutomize-group"> ' +
-                '<h6 class="customizer-title"><?php echo e(__('Sidebar Mode')); ?></h6> ' +
-                '<ul class="customizeoption-list sidebaroption-list"> ' +
-                    '<li class="sidebarlight-action <?php echo e($settings['sidebar_mode']=='light'?'active-mode':''); ?>"><?php echo e(__('Light')); ?></li>' +
-                    '<li class="sidebardark-action <?php echo e($settings['sidebar_mode']=='dark'?'active-mode':''); ?>"><?php echo e(__('Dark')); ?></li>' +
-                    '<li class="sidebargradient-action <?php echo e($settings['sidebar_mode']=='gradient'?'active-mode':''); ?>"><?php echo e(__('Gradient')); ?></li>' +
-                    '</ul> ' +
-                '</div>' +
-            '<div class="cutomize-group"> ' +
-                '<h6 class="customizer-title"><?php echo e(__('Layout Direction')); ?></h6> ' +
-                '<ul class="customizeoption-list"> ' +
-                    '<li class="ltr-action <?php echo e($settings['layout_direction']=='ltrmode'?'active-mode':''); ?>"><?php echo e(__('LTR')); ?></li>' +
-                    '<li class="rtl-action <?php echo e($settings['layout_direction']=='rtlmode'?'active-mode':''); ?>"><?php echo e(__('RTL')); ?></li>' +
-                    '</ul> ' +
-                '</div>' +
-            '<div class="cutomize-group mb-0"> ' +
-                '<h6 class="customizer-title"><?php echo e(__('Layout mode')); ?></h6> ' +
-                '<ul class="customizeoption-list"> ' +
-                    '<li class="light-action <?php echo e($settings['layout_mode']=='lightmode'?'active-mode':''); ?>"><?php echo e(__('Light')); ?></li>' +
-                    '<li class="dark-action <?php echo e($settings['layout_mode']=='darkmode'?'active-mode':''); ?>"><?php echo e(__('Dark')); ?></li>' +
-                    '</ul> ' +
-                '<button type="submit" class="btn btn-primary mt-20"><?php echo e(__('Save')); ?></button>'+
-                '</div>' +
-            '</div>' +
-        '</div></form>' +
-'');
-</script>
+
+
 <script src="<?php echo e(asset('assets/js/customizer.js')); ?>"></script>
 <!-- Feather icons js-->
 <script src="<?php echo e(asset('assets/js/icons/feather-icon/feather.js')); ?>"></script>

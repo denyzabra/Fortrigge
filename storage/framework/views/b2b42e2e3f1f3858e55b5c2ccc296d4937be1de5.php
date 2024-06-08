@@ -1,6 +1,6 @@
 <?php
     $users=\Auth::user();
-   $languages=\App\Models\Custom::languages();
+//    $languages=\App\Models\Custom::languages();
    $userLang=\Auth::user()->lang;
    $profile=asset(Storage::url('upload/profile'));
 ?>
@@ -8,23 +8,14 @@
 <header class="codex-header">
     <div class="header-contian d-flex justify-content-between align-items-center">
         <div class="header-left d-flex align-items-center">
-            <div class="sidebar-action navicon-wrap"><i data-feather="menu"></i></div>
+            
             <ul class="nav-iconlist">
                 <li class="dropdown notification-list topbar-dropdown">
-                    <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    
 
-                        <span class="align-middle d-none d-sm-inline-block"><?php echo e(ucfirst($userLang)); ?></span>
-                        <i class="mdi mdi-chevron-down d-none d-sm-inline-block align-middle"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu dropdown-menu-animated topbar-dropdown-menu">
-                        <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php if($language!='en'): ?>
-                                <a href="<?php echo e(route('language.change',$language)); ?>" class="dropdown-item notify-item">
-                                    <span class="align-middle"><?php echo e(ucfirst( $language)); ?></span>
-                                </a>
-                            <?php endif; ?>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </div>
+                        
+                    
+                    
                 </li>
             </ul>
         </div>

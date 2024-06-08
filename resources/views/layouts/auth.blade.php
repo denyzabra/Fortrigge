@@ -1,6 +1,5 @@
 @php
     $settings=settings();
-
 @endphp
 
     <!DOCTYPE html>

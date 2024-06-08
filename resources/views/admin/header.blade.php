@@ -1,6 +1,6 @@
 @php
     $users=\Auth::user();
-   $languages=\App\Models\Custom::languages();
+//    $languages=\App\Models\Custom::languages();
    $userLang=\Auth::user()->lang;
    $profile=asset(Storage::url('upload/profile'));
 @endphp
@@ -8,15 +8,15 @@
 <header class="codex-header">
     <div class="header-contian d-flex justify-content-between align-items-center">
         <div class="header-left d-flex align-items-center">
-            <div class="sidebar-action navicon-wrap"><i data-feather="menu"></i></div>
+            {{-- <div class="sidebar-action navicon-wrap"><i data-feather="menu"></i></div> --}}
             <ul class="nav-iconlist">
                 <li class="dropdown notification-list topbar-dropdown">
-                    <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    {{-- <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"> --}}
 
-                        <span class="align-middle d-none d-sm-inline-block">{{ucfirst($userLang)}}</span>
-                        <i class="mdi mdi-chevron-down d-none d-sm-inline-block align-middle"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu dropdown-menu-animated topbar-dropdown-menu">
+                        {{-- <span class="align-middle d-none d-sm-inline-block">{{ucfirst($userLang)}}</span>
+                        <i class="mdi mdi-chevron-down d-none d-sm-inline-block align-middle"></i> --}}
+                    {{-- </a> --}}
+                    {{-- <div class="dropdown-menu dropdown-menu dropdown-menu-animated topbar-dropdown-menu">
                         @foreach($languages as $language)
                             @if($language!='en')
                                 <a href="{{route('language.change',$language)}}" class="dropdown-item notify-item">
@@ -24,7 +24,7 @@
                                 </a>
                             @endif
                         @endforeach
-                    </div>
+                    </div> --}}
                 </li>
             </ul>
         </div>

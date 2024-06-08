@@ -12,7 +12,7 @@
 <!-- Theme Customizer-->
 <script src="{{ asset('assets/js/layout-storage.js') }}"></script>
 
-<script>
+{{-- <script>
     "use strict";
 $(".customizer-modal").append('' +
 '<form method="post" action="{{route("theme.settings")}}">{{csrf_field()}}<div class="customizer-layer"></div>' +
@@ -63,7 +63,8 @@ $(".customizer-modal").append('' +
             '</div>' +
         '</div></form>' +
 '');
-</script>
+</script> --}}
+
 <script src="{{ asset('assets/js/customizer.js') }}"></script>
 <!-- Feather icons js-->
 <script src="{{ asset('assets/js/icons/feather-icon/feather.js') }}"></script>

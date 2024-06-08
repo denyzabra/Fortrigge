@@ -12308,7 +12308,7 @@ button.icon-Btn i {
     opacity: .5
 }
 
-.customizer-layer {
+/* .customizer-layer {
     position: fixed;
     top: 0;
     left: 0;
@@ -12325,7 +12325,7 @@ button.icon-Btn i {
 .customizer-layer.active {
     opacity: 1;
     visibility: visible
-}
+} */
 
 .customizer-action {
     position: fixed;

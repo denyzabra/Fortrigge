@@ -53,7 +53,7 @@ class TenantController extends Controller
                 // 'zip_code' => 'required',
                 'address' => 'required',
                 'property' => 'required',
-                // 'unit' => 'required',
+                'unit' => 'required',
                 'lease_start_date' => 'required',
                 'lease_end_date' => 'required',
             ],
@@ -98,9 +98,9 @@ class TenantController extends Controller
             $tenant->user_id = $user->id;
             $tenant->family_member = $request->family_member;
             $tenant->country = $request->country;
-            $tenant->state = $request->state;
+            // $tenant->state = $request->state;
             $tenant->city = $request->city;
-            $tenant->zip_code = $request->zip_code;
+            // $tenant->zip_code = $request->zip_code;
             $tenant->address = $request->address;
             $tenant->property = $request->property;
             $tenant->unit = $request->unit;
@@ -178,9 +178,9 @@ class TenantController extends Controller
                 'phone_number' => 'required',
                 'family_member' => 'required',
                 'country' => 'required',
-                'state' => 'required',
+                // 'state' => 'required',
                 'city' => 'required',
-                'zip_code' => 'required',
+                // 'zip_code' => 'required',
                 'address' => 'required',
                 'property' => 'required',
                 'unit' => 'required',
@@ -221,9 +221,9 @@ class TenantController extends Controller
 
             $tenant->family_member = $request->family_member;
             $tenant->country = $request->country;
-            $tenant->state = $request->state;
+            // $tenant->state = $request->state;
             $tenant->city = $request->city;
-            $tenant->zip_code = $request->zip_code;
+            // $tenant->zip_code = $request->zip_code;
             $tenant->address = $request->address;
             $tenant->property = $request->property;
             $tenant->unit = $request->unit;

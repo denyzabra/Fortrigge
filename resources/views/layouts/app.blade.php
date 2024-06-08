@@ -18,7 +18,6 @@
         <div class="breadcrumb-contain">
             <div class="left-breadcrumb">
                 @yield('breadcrumb')
-
             </div>
             <div class="right-breadcrumb">
                 <ul>

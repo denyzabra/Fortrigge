@@ -79,7 +79,7 @@
 
             @if(Gate::check('manage property') || Gate::check('manage unit')|| Gate::check('manage tenant') || Gate::check('manage invoice') || Gate::check('manage expense') || Gate::check('manage maintainer') || Gate::check('manage maintenance request') || Gate::check('manage contact') || Gate::check('manage support') || Gate::check('manage note'))
                 <li class="cdxmenu-title">
-                    <h5>{{__('Business Management')}}</h5>
+                    <h5>{{__('Property Management')}}</h5>
                 </li>
                 @if(Gate::check('manage tenant'))
                     <li class="menu-item {{in_array($routeName,['tenant.index','tenant.create','tenant.edit','tenant.show'])?'active':''}}">
