@@ -17,13 +17,10 @@
             <div class="codex-brand">
                 <a href="#">
                     <img class="img-fluid light-logo" src="<?php echo e(asset(Storage::url('upload/logo/logo.png'))); ?>" alt="">
-<img class="img-fluid dark-logo" src="<?php echo e(asset(Storage::url('upload/logo/logo.png'))); ?>" alt="">
- 
-
+                    <img class="img-fluid dark-logo" src="<?php echo e(asset(Storage::url('upload/logo/logo.png'))); ?>" alt="">
                 </a>
             </div>
             <h3><?php echo e(__('Welcome to')); ?> <?php echo e(env('APP_NAME')); ?></h3>
-
         </div>
         <?php echo e(Form::open(array('route'=>'login','method'=>'post','id'=>'loginForm','class'=> 'login-form' ))); ?>
 
