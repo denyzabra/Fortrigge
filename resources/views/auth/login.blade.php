@@ -20,7 +20,6 @@
                 </a>
             </div>
             <h3>{{__('Welcome to')}} {{env('APP_NAME')}}</h3>
-
         </div>
         {{Form::open(array('route'=>'login','method'=>'post','id'=>'loginForm','class'=> 'login-form' ))}}
         <div class="form-group">
