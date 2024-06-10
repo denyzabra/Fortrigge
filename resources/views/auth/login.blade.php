@@ -12,6 +12,7 @@
 @endpush
 @section('content')
     <div class="codex-authbox">
+        
         <div class="auth-header">
             <div class="codex-brand">
                 <a href="#">
