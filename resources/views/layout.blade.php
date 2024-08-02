@@ -105,7 +105,7 @@
 
         <!-- land section -->
         <!-- <li class="menu-title mt-2" data-key="t-components">Land</li> -->
-        <li>
+        <!-- <li>
             <a href="javascript: void(0);" class="has-arrow">
                 <i data-feather="map"></i>
                 <span data-key="t-land">Land Types</span>
@@ -115,11 +115,11 @@
                 <li><a href="#" data-key="t-commercial-land">Commercial Land</a></li>
                 <li><a href="#" data-key="t-residential-land">Residential Land</a></li>
             </ul>
-        </li>
+        </li> -->
 
                              <!-- Housing Section -->
         <!-- <li class="menu-title mt-2" data-key="t-components">Housing</li> -->
-        <li>
+        <!-- <li>
             <a href="javascript: void(0);" class="has-arrow">
                 <i data-feather="home"></i>
                 <span data-key="t-housing">Housing Types</span>
@@ -144,7 +144,7 @@
                     </ul>
                 </li>
             </ul>
-        </li>
+        </li> -->
 
           <!-- Tenant Management Section -->
           <!-- <li class="menu-title mt-2" data-key="t-components">Tenant Management</li> -->

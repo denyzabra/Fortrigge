@@ -85,4 +85,13 @@ Route::middleware('auth')->group(function () {
 });
 
 
+// Property Routes
+Route::resource('properties', PropertyController::class);
+// Housing Type Routes
+Route::resource('housing_types', HousingTypeController::class);
+// Land Type Routes
+Route::resource('land_types', LandTypeController::class);
+
+
+
 
