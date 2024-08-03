@@ -8,6 +8,9 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SecuritySettingController;
+use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\HousingTypesController;
+use App\Http\Controllers\LandTypesController;
 
 
 // login Routes
@@ -85,12 +88,9 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// Property Routes
 Route::resource('properties', PropertyController::class);
-// Housing Type Routes
-Route::resource('housing_types', HousingTypeController::class);
-// Land Type Routes
-Route::resource('land_types', LandTypeController::class);
+Route::resource('housing_types', HousingTypesController::class);
+Route::resource('land_types', LandTypesController::class);
 
 
 

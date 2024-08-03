@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\LandType;
 use Illuminate\Http\Request;
 
-class LandTypeController extends Controller
+class LandTypesController extends Controller
 {
     public function index()
     {
@@ -21,12 +21,9 @@ class LandTypeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'type' => 'required|string|max:255',
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:land_types',
         ]);
-
         LandType::create($request->all());
-
         return redirect()->route('land_types.index')->with('success', 'Land Type created successfully.');
     }
 
@@ -38,12 +35,9 @@ class LandTypeController extends Controller
     public function update(Request $request, LandType $landType)
     {
         $request->validate([
-            'type' => 'required|string|max:255',
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:land_types,name,' . $landType->id,
         ]);
-
         $landType->update($request->all());
-
         return redirect()->route('land_types.index')->with('success', 'Land Type updated successfully.');
     }
 
@@ -53,5 +47,3 @@ class LandTypeController extends Controller
         return redirect()->route('land_types.index')->with('success', 'Land Type deleted successfully.');
     }
 }
-
-

@@ -21,12 +21,10 @@ class HousingTypeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'type' => 'required|string|max:255',
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:housing_types',
         ]);
 
         HousingType::create($request->all());
-
         return redirect()->route('housing_types.index')->with('success', 'Housing Type created successfully.');
     }
 
@@ -38,12 +36,9 @@ class HousingTypeController extends Controller
     public function update(Request $request, HousingType $housingType)
     {
         $request->validate([
-            'type' => 'required|string|max:255',
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:housing_types,name,' . $housingType->id,
         ]);
-
         $housingType->update($request->all());
-
         return redirect()->route('housing_types.index')->with('success', 'Housing Type updated successfully.');
     }
 

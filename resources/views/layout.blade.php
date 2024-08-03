@@ -97,8 +97,8 @@
                 <span data-key="t-apps">Property</span>
             </a>
             <ul class="sub-menu" aria-expanded="false">
-                <li><a href="#" data-key="t-view-properties">View Properties</a></li>
-                <li><a href="#" data-key="t-add-property">Add New Property</a></li>
+                <li><a href="{{ route('properties.index')}}" data-key="t-view-properties">View Properties</a></li>
+                <li><a href="{{ route('properties.create')}}" data-key="t-add-property">Add New Property</a></li>
                 <li><a href="#" data-key="t-edit-property">Edit Property</a></li>
             </ul>
         </li>

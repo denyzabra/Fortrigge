@@ -34,8 +34,12 @@ class PropertyController extends Controller
         ]);
 
         Property::create($request->all());
-
         return redirect()->route('properties.index')->with('success', 'Property created successfully.');
+    }
+
+    public function show(Property $property)
+    {
+        return view('properties.show', compact('property'));
     }
 
     public function edit(Property $property)
@@ -57,7 +61,6 @@ class PropertyController extends Controller
         ]);
 
         $property->update($request->all());
-
         return redirect()->route('properties.index')->with('success', 'Property updated successfully.');
     }
 
