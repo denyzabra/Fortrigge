@@ -154,9 +154,10 @@
                 <span data-key="t-tenants">Tenants</span>
             </a>
             <ul class="sub-menu" aria-expanded="false">
-                <li><a href="#" data-key="t-tenant-list">Tenant List</a></li>
-                <li><a href="#" data-key="t-add-tenant">Add New Tenant</a></li>
-                <li><a href="#" data-key="t-tenant-details">Tenant Details</a></li>
+            <li><a href="{{ route('tenants.index') }}" data-key="t-tenant-list">Tenant List</a></li>
+            <li><a href="{{ route('tenants.create') }}" data-key="t-add-tenant">Add New Tenant</a></li>
+            <li><a href="#" data-key="t-tenant-details">Tenant Details</a></li>
+
             </ul>
         </li>
 
@@ -204,11 +205,11 @@
                 <span data-key="t-documents">Documents</span>
             </a>
             <ul class="sub-menu" aria-expanded="false">
-                <li><a href="#" data-key="t-property-documents">Property Documents</a></li>
-                <li><a href="#" data-key="t-lease-agreements-docs">Lease Agreements</a></li>
-                <li><a href="#" data-key="t-maintenance-records">Maintenance Records</a></li>
-                <li><a href="#" data-key="t-lc-letters">LC Letters</a></li>
-                <li><a href="#" data-key="t-biodata">Bio-data: Work Info</a></li>
+                <li><a href="{{ route('documents.index', ['type' => 'property']) }}" data-key="t-property-documents">Property Documents</a></li>
+                <li><a href="{{ route('documents.index', ['type' => 'lease']) }}" data-key="t-lease-agreements-docs">Lease Agreements</a></li>
+                <li><a href="{{ route('documents.index', ['type' => 'maintenance']) }}" data-key="t-maintenance-records">Maintenance Records</a></li>
+                <li><a href="{{ route('documents.index', ['type' => 'lc']) }}" data-key="t-lc-letters">LC Letters</a></li>
+                <li><a href="{{ route('documents.index', ['type' => 'biodata']) }}" data-key="t-biodata">Bio-data: Work Info</a></li>
             </ul>
         </li>
 

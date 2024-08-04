@@ -1,20 +1,13 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile - Fortrigge PMS</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}" />
-    <!-- Include any other CSS files you need -->
-</head>
-<body>
+@extends('layout.master')
+
+
+<!-- <body>
     <div id="layout-wrapper">
         
         <div id="layout-wrapper">
         <header id="page-topbar">
             <div class="navbar-header">
-                <!-- Logo and other header content -->
+                <!-- Logo and other header content --
                 <div class="d-flex">
                     <div class="navbar-brand-box">
                         <a href="{{ route('dashboard') }}" class="logo logo-dark">
@@ -47,7 +40,7 @@
                             <button class="btn btn-primary" type="button"><i class="bx bx-search-alt align-middle"></i></button>
                         </div>
                     </form>
-                </div>
+                </div> -->
 
                 <div class="d-flex">
                     <div class="dropdown d-inline-block">
@@ -76,7 +69,7 @@
         
         @extends('layout.sidebar')
 
-
+        @section('content')
         <div class="main-content">
             <div class="page-content">
                 <div class="container-fluid">
@@ -140,8 +133,13 @@
         </div>
     </div>
     
+    
     <!-- Include any JavaScript files you need -->
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/js/app.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/metismenu/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
 </body>
 </html>

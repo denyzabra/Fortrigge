@@ -9,6 +9,7 @@
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
 </head>
 <body>
    <!-- ========== Left Sidebar Start ========== -->
@@ -32,15 +33,15 @@
                 <span data-key="t-apps">Property</span>
             </a>
             <ul class="sub-menu" aria-expanded="false">
-                <li><a href="#" data-key="t-view-properties">View Properties</a></li>
-                <li><a href="#" data-key="t-add-property">Add New Property</a></li>
+                <li><a href="{{ route('properties.index')}}" data-key="t-view-properties">View Properties</a></li>
+                <li><a href="{{ route('properties.create')}}" data-key="t-add-property">Add New Property</a></li>
                 <li><a href="#" data-key="t-edit-property">Edit Property</a></li>
             </ul>
         </li>
 
         <!-- land section -->
         <!-- <li class="menu-title mt-2" data-key="t-components">Land</li> -->
-        <li>
+        <!-- <li>
             <a href="javascript: void(0);" class="has-arrow">
                 <i data-feather="map"></i>
                 <span data-key="t-land">Land Types</span>
@@ -50,11 +51,11 @@
                 <li><a href="#" data-key="t-commercial-land">Commercial Land</a></li>
                 <li><a href="#" data-key="t-residential-land">Residential Land</a></li>
             </ul>
-        </li>
+        </li> -->
 
                              <!-- Housing Section -->
         <!-- <li class="menu-title mt-2" data-key="t-components">Housing</li> -->
-        <li>
+        <!-- <li>
             <a href="javascript: void(0);" class="has-arrow">
                 <i data-feather="home"></i>
                 <span data-key="t-housing">Housing Types</span>
@@ -79,7 +80,7 @@
                     </ul>
                 </li>
             </ul>
-        </li>
+        </li> -->
 
           <!-- Tenant Management Section -->
           <!-- <li class="menu-title mt-2" data-key="t-components">Tenant Management</li> -->
@@ -89,15 +90,16 @@
                 <span data-key="t-tenants">Tenants</span>
             </a>
             <ul class="sub-menu" aria-expanded="false">
-                <li><a href="#" data-key="t-tenant-list">Tenant List</a></li>
-                <li><a href="#" data-key="t-add-tenant">Add New Tenant</a></li>
-                <li><a href="#" data-key="t-tenant-details">Tenant Details</a></li>
+            <li><a href="{{ route('tenants.index') }}" data-key="t-tenant-list">Tenant List</a></li>
+            <li><a href="{{ route('tenants.create') }}" data-key="t-add-tenant">Add New Tenant</a></li>
+            <li><a href="#" data-key="t-tenant-details">Tenant Details</a></li>
+
             </ul>
         </li>
 
           <!-- Lease Management Section -->
           <!-- <li class="menu-title mt-2" data-key="t-components">Lease Management</li> -->
-        <li>
+        <!-- <li>
             <a href="javascript: void(0);" class="has-arrow">
                 <i data-feather="file-text"></i>
                 <span data-key="t-leases">Leases</span>
@@ -107,7 +109,7 @@
                 <li><a href="#" data-key="t-add-lease">Add New Lease</a></li>
                 <li><a href="#" data-key="t-lease-details">Lease Details</a></li>
             </ul>
-        </li>
+        </li> -->
 
 
          <!-- Maintenance Requests Section -->
@@ -139,11 +141,11 @@
                 <span data-key="t-documents">Documents</span>
             </a>
             <ul class="sub-menu" aria-expanded="false">
-                <li><a href="#" data-key="t-property-documents">Property Documents</a></li>
-                <li><a href="#" data-key="t-lease-agreements-docs">Lease Agreements</a></li>
-                <li><a href="#" data-key="t-maintenance-records">Maintenance Records</a></li>
-                <li><a href="#" data-key="t-lc-letters">LC Letters</a></li>
-                <li><a href="#" data-key="t-biodata">Bio-data: Work Info</a></li>
+            <li><a href="{{ route('documents.index', ['type' => 'property']) }}" data-key="t-property-documents">Property Documents</a></li>
+                <li><a href="{{ route('documents.index', ['type' => 'lease']) }}" data-key="t-lease-agreements-docs">Lease Agreements</a></li>
+                <li><a href="{{ route('documents.index', ['type' => 'maintenance']) }}" data-key="t-maintenance-records">Maintenance Records</a></li>
+                <li><a href="{{ route('documents.index', ['type' => 'lc']) }}" data-key="t-lc-letters">LC Letters</a></li>
+                <li><a href="{{ route('documents.index', ['type' => 'biodata']) }}" data-key="t-biodata">Bio-data: Work Info</a></li>
             </ul>
         </li>
 
@@ -499,6 +501,13 @@
     <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
     <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.2/js/buttons.print.min.js"></script>
 
     @yield('scripts')
 </body>

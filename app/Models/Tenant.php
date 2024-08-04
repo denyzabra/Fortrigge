@@ -8,13 +8,28 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Tenant extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
+
     protected $fillable = [
-       'name', 
-       'email',
-       'phone',
-       'address',
-       'lease_start',
-       'lease_end',
+        'name',
+        'email',
+        'phone_number',
+        'property_id',
     ];
+
+    /**
+     * Get the property that the tenant is associated with.
+     */
+    public function property()
+    {
+        return $this->belongsTo(Property::class);
+    }
+
+    /**
+     * Get the leases associated with the tenant.
+     */
+    public function leases()
+    {
+        return $this->hasMany(Lease::class);
+    }
 }

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout.master')
 
 @section('content')
 <div class="main-content">
@@ -155,11 +155,10 @@
 @endsection
 
 @push('scripts')
-    <!-- ApexCharts JS -->
-    <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
-    <!-- Counter Up JS -->
-    <script src="{{ asset('assets/libs/jquery.counterup/jquery.counterup.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/jquery.counterup/jquery.counterup.js') }}"></script>
-    <!-- Custom JS for dashboard -->
-    <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
+<script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/metismenu/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
 @endpush

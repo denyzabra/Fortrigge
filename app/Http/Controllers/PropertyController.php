@@ -56,6 +56,8 @@ class PropertyController extends Controller
             'description' => 'nullable|string',
             'price' => 'required|numeric',
             'thumbnail_image_id' => 'nullable|integer',
+            'location' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
             'housing_type_id' => 'required|exists:housing_types,id',
             'land_type_id' => 'required|exists:land_types,id',
         ]);

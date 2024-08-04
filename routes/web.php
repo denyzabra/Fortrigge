@@ -11,6 +11,10 @@ use App\Http\Controllers\SecuritySettingController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\HousingTypesController;
 use App\Http\Controllers\LandTypesController;
+use App\Http\Controllers\TenantController;
+use App\Http\Controllers\LeaseController;
+use App\Http\Controllers\ServiceProviderController;
+use App\Http\Controllers\DocumentController;
 
 
 // login Routes
@@ -47,7 +51,6 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('user-sessions', [UserSessionController::class, 'index'])->name('user-sessions.index');
 });
-
 
 //profile 
 Route::middleware('auth')->get('/profile', [ProfileController::class, 'show'])->name('profile');
@@ -87,10 +90,64 @@ Route::middleware('auth')->group(function () {
     Route::put('security-settings', [SecuritySettingController::class, 'update'])->name('security-setting.update');
 });
 
-
+//property routes
 Route::resource('properties', PropertyController::class);
 Route::resource('housing_types', HousingTypesController::class);
 Route::resource('land_types', LandTypesController::class);
+
+// Route::resource('tenants', TenantController::class);
+// Route::resource('leases', LeaseController::class);
+// Route::resource('service-providers', ServiceProviderController::class);
+
+// Route::resource('documents', DocumentController::class);
+
+// Tenants Routes
+// Tenants Routes
+Route::prefix('tenants')->name('tenants.')->group(function () {
+    Route::get('/', [TenantController::class, 'index'])->name('index');
+    Route::get('create', [TenantController::class, 'create'])->name('create');
+    Route::post('/', [TenantController::class, 'store'])->name('store');
+    Route::get('{tenant}', [TenantController::class, 'show'])->name('show');
+    Route::get('{tenant}/edit', [TenantController::class, 'edit'])->name('edit');
+    Route::put('{tenant}', [TenantController::class, 'update'])->name('update');
+    Route::delete('{tenant}', [TenantController::class, 'destroy'])->name('destroy');
+});
+
+
+// Leases Routes
+Route::prefix('leases')->name('leases.')->group(function () {
+    Route::get('/', [LeaseController::class, 'index'])->name('index');
+    Route::get('create', [LeaseController::class, 'create'])->name('create');
+    Route::post('/', [LeaseController::class, 'store'])->name('store');
+    Route::get('{lease}', [LeaseController::class, 'show'])->name('show');
+    Route::get('{lease}/edit', [LeaseController::class, 'edit'])->name('edit');
+    Route::put('{lease}', [LeaseController::class, 'update'])->name('update');
+    Route::delete('{lease}', [LeaseController::class, 'destroy'])->name('destroy');
+});
+
+// Maintenance Requests Routes
+Route::prefix('maintenance')->name('maintenance.')->group(function () {
+    Route::get('/', [MaintenanceController::class, 'index'])->name('index');
+    Route::get('tasks', [TaskController::class, 'index'])->name('tasks.index');
+    Route::get('tasks/{task}', [TaskController::class, 'show'])->name('tasks.show');
+    Route::post('tasks/{task}', [TaskController::class, 'update'])->name('tasks.update');
+});
+
+// Service Providers Routes
+Route::prefix('service-providers')->name('service-providers.')->group(function () {
+    Route::get('/', [ServiceProviderController::class, 'index'])->name('index');
+    Route::get('{type}', [ServiceProviderController::class, 'index'])->name('indexByType');
+});
+
+// Documents Routes
+Route::prefix('documents')->name('documents.')->group(function () {
+    Route::get('/', [DocumentController::class, 'index'])->name('index');
+    Route::post('/', [DocumentController::class, 'store'])->name('store');
+    Route::get('create', [DocumentController::class, 'create'])->name('create');
+    Route::get('{document}', [DocumentController::class, 'show'])->name('show');
+    Route::delete('{document}', [DocumentController::class, 'destroy'])->name('destroy');
+});
+
 
 
 
