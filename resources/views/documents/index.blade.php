@@ -1,6 +1,14 @@
 @extends('layout.master')
 
 @section('content')
+<div class="row">
+        <!-- Sidebar -->
+        <aside class="col-md-2">
+            <!-- Sidebar content or menu here -->
+        </aside>
+
+        <!-- Main Content -->
+        <main class="col-md-10">
 <div class="container">
     <h2>Documents</h2>
     <table class="table">

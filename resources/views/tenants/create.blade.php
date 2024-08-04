@@ -1,6 +1,14 @@
 @extends('layout.master')
 
 @section('content')
+<div class="row">
+        <!-- Sidebar -->
+        <aside class="col-md-2">
+            <!-- Sidebar content or menu here -->
+        </aside>
+
+        <!-- Main Content -->
+        <main class="col-md-10">
 <h1>Add New Tenant</h1>
 <form action="{{ route('tenants.store') }}" method="POST">
     @csrf

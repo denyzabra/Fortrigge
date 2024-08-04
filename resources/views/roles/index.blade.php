@@ -1,6 +1,14 @@
-@extends('layout')
+@extends('layout.master')
 
 @section('content')
+<div class="row">
+        <!-- Sidebar -->
+        <aside class="col-md-2">
+            <!-- Sidebar content or menu here -->
+        </aside>
+
+        <!-- Main Content -->
+        <main class="col-md-10">
 <div class="container">
     <h1>Manage Roles</h1>
     <a href="{{ route('roles.create') }}" class="btn btn-primary mb-3">Add New Role</a>

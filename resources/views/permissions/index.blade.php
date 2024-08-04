@@ -1,6 +1,14 @@
 @extends('layout')
 
 @section('content')
+<div class="row">
+        <!-- Sidebar -->
+        <aside class="col-md-2">
+            <!-- Sidebar content or menu here -->
+        </aside>
+
+        <!-- Main Content -->
+        <main class="col-md-10">
 <div class="container">
     <h1>Manage Permissions</h1>
     <a href="{{ route('permissions.create') }}" class="btn btn-primary mb-3">Add New Permission</a>

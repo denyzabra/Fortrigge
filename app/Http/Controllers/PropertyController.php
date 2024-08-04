@@ -28,7 +28,7 @@ class PropertyController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'price' => 'required|numeric',
-            'thumbnail_image_id' => 'nullable|integer',
+            'thumbnail_image' => 'nullable|string',
             'housing_type_id' => 'required|exists:housing_types,id',
             'land_type_id' => 'required|exists:land_types,id',
         ]);
@@ -39,7 +39,9 @@ class PropertyController extends Controller
 
     public function show(Property $property)
     {
-        return view('properties.show', compact('property'));
+        $housingTypes = HousingType::all();  // Corrected class name
+        $landTypes = LandType::all();
+        return view('properties.show', compact('property', 'housingTypes', 'landTypes'));
     }
 
     public function edit(Property $property)
@@ -55,7 +57,7 @@ class PropertyController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'price' => 'required|numeric',
-            'thumbnail_image_id' => 'nullable|integer',
+            'thumbnail_image' => 'nullable|string',
             'location' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'housing_type_id' => 'required|exists:housing_types,id',
@@ -72,4 +74,3 @@ class PropertyController extends Controller
         return redirect()->route('properties.index')->with('success', 'Property deleted successfully.');
     }
 }
-

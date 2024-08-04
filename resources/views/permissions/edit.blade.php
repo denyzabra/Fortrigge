@@ -1,6 +1,14 @@
 @extends('layout')
 
 @section('content')
+<div class="row">
+        <!-- Sidebar -->
+        <aside class="col-md-2">
+            <!-- Sidebar content or menu here -->
+        </aside>
+
+        <!-- Main Content -->
+        <main class="col-md-10">
 <div class="container">
     <h1>Edit Permission</h1>
     <form action="{{ route('permissions.update', $permission) }}" method="POST">

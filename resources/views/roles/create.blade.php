@@ -1,6 +1,14 @@
-@extends('layout')
+@extends('layout.master')
 
 @section('content')
+<div class="row">
+        <!-- Sidebar -->
+        <aside class="col-md-2">
+            <!-- Sidebar content or menu here -->
+        </aside>
+
+        <!-- Main Content -->
+        <main class="col-md-10">
 <div class="container">
     <h1>Create Role</h1>
     <form action="{{ route('roles.store') }}" method="POST">

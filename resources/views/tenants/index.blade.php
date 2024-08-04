@@ -1,6 +1,14 @@
 @extends('layout.master')
 
 @section('content')
+<div class="row">
+        <!-- Sidebar -->
+        <aside class="col-md-2">
+            <!-- Sidebar content or menu here -->
+        </aside>
+
+        <!-- Main Content -->
+        <main class="col-md-10">
 <h1>Tenant List</h1>
 <a href="{{ route('tenants.create') }}" class="btn btn-primary">Add New Tenant</a>
 <table class="table">

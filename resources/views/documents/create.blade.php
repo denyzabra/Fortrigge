@@ -2,6 +2,14 @@
 @extends('layout.master')
 
 @section('content')
+<div class="row">
+        <!-- Sidebar -->
+        <aside class="col-md-2">
+            <!-- Sidebar content or menu here -->
+        </aside>
+
+        <!-- Main Content -->
+        <main class="col-md-10">
 <div class="container">
     <h1>Add New Document</h1>
     <form action="{{ route('documents.store') }}" method="POST" enctype="multipart/form-data">
