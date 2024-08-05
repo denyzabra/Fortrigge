@@ -1,6 +1,6 @@
-@extends('layout.master')
+<!-- @extends('layout.master') -->
 
-@section('content')
+<!-- @section('content') -->
 <div class="row">
         <!-- Sidebar -->
         <aside class="col-md-2">
@@ -36,4 +36,4 @@
         </tbody>
     </table>
 </div>
-@endsection
+<!-- @endsection -->
