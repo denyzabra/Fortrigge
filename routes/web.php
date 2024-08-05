@@ -148,6 +148,10 @@ Route::prefix('documents')->name('documents.')->group(function () {
     Route::delete('{document}', [DocumentController::class, 'destroy'])->name('destroy');
 });
 
+Route::get('/dashboard', [PropertyController::class, 'dashboard'])->name('dashboard');
+
+
+
 
 
 

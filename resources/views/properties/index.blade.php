@@ -9,58 +9,62 @@
 
     <!-- Main Content -->
     <main class="col-md-10">
+        <br>
         <div class="card mb-3">
             <div class="card-body">
-                <div class="mb-3">
-                    <h1>Properties</h1>
+                <br>
+                <div class="mb-3 text-center">
+                    <h1 class="mb-2">Properties</h1>
                     <a href="{{ route('properties.create') }}" class="btn btn-primary">Add Property</a>
                 </div>
 
                 <!-- Table -->
-                <table id="propertyTable" class="table table-striped dt-responsive nowrap" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                            <th>Housing Type</th>
-                            <th>Land Type</th>
-                            <th>Location</th>
-                            <th>Address</th>
-                            <th>Thumbnail</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($properties as $property)
+                <div class="table-responsive">
+                    <table id="propertyTable" class="table table-striped dt-responsive nowrap" style="width:100%">
+                        <thead>
                             <tr>
-                                <td>{{ $property->name }}</td>
-                                <td>{{ $property->description }}</td>
-                                <td>${{ number_format($property->price, 2) }}</td>
-                                <td>{{ $property->housingType->name }}</td>
-                                <td>{{ $property->landType->name }}</td>
-                                <td>{{ $property->location }}</td>
-                                <td>{{ $property->address }}</td>
-                                <td>
-                                    @if ($property->thumbnail_image)
-                                        <img src="{{ asset('storage/thumbnails/' . $property->thumbnail_image) }}" alt="Thumbnail" style="max-width: 100px;">
-                                    @else
-                                        No Image
-                                    @endif
-                                </td>
-                                <td>
-                                    <a href="{{ route('properties.show', $property->id) }}" class="btn btn-info">View</a>
-                                    <a href="{{ route('properties.edit', $property->id) }}" class="btn btn-warning">Edit</a>
-                                    <form action="{{ route('properties.destroy', $property->id) }}" method="POST" style="display:inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                    </form>
-                                </td>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Housing Type</th>
+                                <th>Land Type</th>
+                                <th>Location</th>
+                                <th>Address</th>
+                                <th>Thumbnail</th>
+                                <th>Actions</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach ($properties as $property)
+                                <tr>
+                                    <td>{{ $property->name }}</td>
+                                    <td>{{ $property->description }}</td>
+                                    <td>${{ number_format($property->price, 2) }}</td>
+                                    <td>{{ $property->housingType->name }}</td>
+                                    <td>{{ $property->landType->name }}</td>
+                                    <td>{{ $property->location }}</td>
+                                    <td>{{ $property->address }}</td>
+                                    <td>
+                                        @if ($property->thumbnail_image)
+                                            <img src="{{ asset('storage/thumbnails/' . $property->thumbnail_image) }}" alt="Thumbnail" style="max-width: 100px; max-height: 100px;">
+                                        @else
+                                            No Image
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('properties.show', $property->id) }}" class="btn btn-info btn-sm">View</a>
+                                        <a href="{{ route('properties.edit', $property->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                        <form action="{{ route('properties.destroy', $property->id) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete();">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>                                    
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </main>
@@ -96,5 +100,9 @@
             ]
         });
     });
+
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this property? This action cannot be undone.');
+    }
 </script>
 @endpush

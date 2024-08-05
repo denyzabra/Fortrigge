@@ -73,4 +73,11 @@ class PropertyController extends Controller
         $property->delete();
         return redirect()->route('properties.index')->with('success', 'Property deleted successfully.');
     }
+
+    public function dashboard()
+    {
+        $propertyCount = Property::count();
+        // dd($propertyCount);
+        return view('dashboard', compact('propertyCount'));
+    }
 }

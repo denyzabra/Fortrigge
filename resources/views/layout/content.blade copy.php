@@ -29,18 +29,16 @@
                                 <div class="col-6">
                                     <span class="text-muted mb-3 lh-1 d-block text-truncate">Properties</span>
                                     <h4 class="mb-3">
-                                        <span class="counter-value" data-target="{{ $propertyCount }}">{{ $propertyCount }}</span>
+                                        <span class="counter-value" data-target="0">0</span>
                                     </h4>
                                 </div>
                                 <div class="col-6">
                                     <!-- Mini-chart or relevant data visualization -->
-                                    <div id="miniChart"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
 
                 <div class="col-xl-3 col-md-6">
                     <div class="card card-h-100">
