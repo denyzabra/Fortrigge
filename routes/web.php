@@ -15,6 +15,7 @@ use App\Http\Controllers\TenantController;
 use App\Http\Controllers\LeaseController;
 use App\Http\Controllers\ServiceProviderController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\RequestController;
 
 
 // login Routes
@@ -149,6 +150,7 @@ Route::prefix('documents')->name('documents.')->group(function () {
 });
 
 Route::get('/dashboard', [PropertyController::class, 'dashboard'])->name('dashboard');
+Route::resource('requests', RequestController::class);
 
 
 

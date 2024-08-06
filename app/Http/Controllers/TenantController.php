@@ -28,6 +28,8 @@ class TenantController extends Controller
             'email' => 'required|email|unique:tenants,email',
             'phone_number' => 'required|string|max:15',
             'property_id' => 'required|exists:properties,id',
+            'lease_start_date' => 'nullable|date',
+            'lease_end_date' => 'nullable|date',
         ]);
 
         Tenant::create($request->all());
@@ -35,14 +37,19 @@ class TenantController extends Controller
         return redirect()->route('tenants.index')->with('success', 'Tenant created successfully.');
     }
 
-    public function show(Tenant $tenant)
+    public function show($id)
     {
+        
+        $tenant = Tenant::with('property', 'leases')->findOrFail($id);
         return view('tenants.show', compact('tenant'));
     }
 
-    public function edit(Tenant $tenant)
+    public function edit($id)
     {
-        return view('tenants.edit', compact('tenant'));
+        $tenant = Tenant::findOrFail($id);
+        $properties = Property::all();
+
+        return view('tenants.edit', compact('tenant', 'properties'));
     }
 
     public function update(Request $request, Tenant $tenant)

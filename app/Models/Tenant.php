@@ -15,19 +15,20 @@ class Tenant extends Model
         'email',
         'phone_number',
         'property_id',
+        'lease_start_date',
+        'lease_end_date',
     ];
 
-    /**
-     * Get the property that the tenant is associated with.
-     */
+    protected $casts = [
+        'lease_start_date' => 'date',
+        'lease_end_date' => 'date',
+    ];
+
     public function property()
     {
         return $this->belongsTo(Property::class);
     }
 
-    /**
-     * Get the leases associated with the tenant.
-     */
     public function leases()
     {
         return $this->hasMany(Lease::class);

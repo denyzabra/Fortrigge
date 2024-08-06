@@ -92,7 +92,7 @@
             <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ route('tenants.index') }}" data-key="t-tenant-list">Tenant List</a></li>
             <li><a href="{{ route('tenants.create') }}" data-key="t-add-tenant">Add New Tenant</a></li>
-            <li><a href="#" data-key="t-tenant-details">Tenant Details</a></li>
+            {{-- <li><a href="#" data-key="t-tenant-details">Tenant Details</a></li> --}}
 
             </ul>
         </li>
@@ -120,14 +120,10 @@
                 <span data-key="t-maintenance">Requests</span>
             </a>
             <ul class="sub-menu" aria-expanded="false">
-                <li><a href="#" data-key="t-submitted-requests">Submitted Requests</a></li>
-                <li><a href="#" data-key="t-task-management">Task Management</a></li>
-                <li><a href="javascript: void(0);" class="has-arrow" data-key="t-service-providers">Service Providers</a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#" data-key="t-electricians">Electricians</a></li>
-                        <li><a href="#" data-key="t-plumbers">Plumbers</a></li>
-                        <li><a href="#" data-key="t-cleaners">Cleaners</a></li>
-                    </ul>
+                <li><a href="{{ route('requests.index') }}" data-key="t-submitted-requests">Submitted Requests</a></li>
+                {{-- <li><a href="#" data-key="t-task-management">Task Management</a></li> --}}
+                <li><a href="#" data-key="t-task-management">Service Providers</a></li>
+                
                 </li>
             </ul>
         </li>
