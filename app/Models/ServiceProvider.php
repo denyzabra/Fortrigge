@@ -24,4 +24,13 @@ class ServiceProvider extends Model
     {
         return $this->hasMany(MaintenanceRequest::class);
     }
+
+    public function tenants()
+    {
+        return $this->belongsToMany(Tenant::class, 'service_provider_tenant');
+    }
+    public function properties()
+    {
+        return $this->belongsToMany(Property::class, 'service_provider_property');
+    }
 }

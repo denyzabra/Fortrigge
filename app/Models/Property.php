@@ -19,45 +19,38 @@ class Property extends Model
         'address',
         'housing_type_id',
         'land_type_id',
+        'owner_name',
+        'owner_email',
+        'owner_phone_number',
     ];
 
-    /**
-     * Get the tenants associated with the property.
-     */
     public function tenants()
     {
         return $this->hasMany(Tenant::class);
     }
 
-    /**
-     * Get the leases associated with the property.
-     */
     public function leases()
     {
         return $this->hasMany(Lease::class);
     }
 
-    /**
-     * Get the maintenance requests for the property.
-     */
     public function maintenanceRequests()
     {
         return $this->hasMany(MaintenanceRequest::class);
     }
 
-    /**
-     * Get the housing type associated with the property.
-     */
     public function housingType()
     {
         return $this->belongsTo(HousingType::class);
     }
 
-    /**
-     * Get the land type associated with the property.
-     */
     public function landType()
     {
         return $this->belongsTo(LandType::class);
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
     }
 }

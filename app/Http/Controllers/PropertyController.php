@@ -26,16 +26,25 @@ class PropertyController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'description' => 'nullable|string|max:500',
             'price' => 'required|numeric',
-            'thumbnail_image' => 'nullable|string',
+            'thumbnail_image' => 'nullable|file|image|max:2048',
             'housing_type_id' => 'required|exists:housing_types,id',
             'land_type_id' => 'required|exists:land_types,id',
+            'location' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
         ]);
 
-        Property::create($request->all());
+        $data = $request->all();
+        // Handle file upload if a file is provided
+        if ($request->hasFile('thumbnail_image')) {
+            $data['thumbnail_image'] = $request->file('thumbnail_image')->store('thumbnails');
+        }
+        // dd($request->all());
+        Property::create($data);
         return redirect()->route('properties.index')->with('success', 'Property created successfully.');
     }
+
 
     public function show(Property $property)
     {
@@ -55,7 +64,7 @@ class PropertyController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'description' => 'nullable|string|max:500',
             'price' => 'required|numeric',
             'thumbnail_image' => 'nullable|string',
             'location' => 'required|string|max:255',

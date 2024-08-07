@@ -1,5 +1,5 @@
-@extends('layout.master')
+@extends('layout.master') 
 
 @section('content')
-    @include('layout.content') 
+    @include('layout.content')
 @endsection

@@ -10,6 +10,7 @@
     <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <link href="{{ asset('assets/css/datatables.min.css')}}" rel="stylesheet">
 </head>
 <body>
    <!-- ========== Left Sidebar Start ========== -->
@@ -20,7 +21,7 @@
                         <!-- Left Menu Start -->
                         <ul class="metismenu list-unstyled" id="side-menu">
                             <li>
-                                <a href="#">
+                                <a href={{ route('dashboard') }}>
                                     <i data-feather="home"></i>
                                     <span data-key="t-dashboard">Dashboard</span>
                                 </a>
@@ -114,19 +115,30 @@
 
          <!-- Maintenance Requests Section -->
          <!-- <li class="menu-title mt-2" data-key="t-components">Maintenance Requests</li> -->
-        <li>
+         <li>
             <a href="javascript: void(0);" class="has-arrow">
                 <i data-feather="tool"></i>
                 <span data-key="t-maintenance">Requests</span>
             </a>
             <ul class="sub-menu" aria-expanded="false">
                 <li><a href="{{ route('requests.index') }}" data-key="t-submitted-requests">Submitted Requests</a></li>
-                {{-- <li><a href="#" data-key="t-task-management">Task Management</a></li> --}}
-                <li><a href="#" data-key="t-task-management">Service Providers</a></li>
-                
-                </li>
+                <li><a href="{{ route('tasks.index') }}" data-key="t-task-management">Task Management</a></li>
+                <li><a href="{{ route('service_providers.index') }}" data-key="t-service-providers">Service Providers</a></li>
             </ul>
         </li>
+        
+        {{-- <li>
+            <a href="javascript: void(0);" class="has-arrow">
+                <i data-feather="file-text"></i>
+                <span data-key="t-reports">Reports</span>
+            </a>
+            <ul class="sub-menu" aria-expanded="false">
+                <li><a href="{{ route('reports.properties') }}" data-key="t-properties">Property Reports</a></li>
+                <li><a href="{{ route('reports.tenants') }}" data-key="t-tenants">Tenant Reports</a></li>
+                <li><a href="{{ route('reports.tasks') }}" data-key="t-tasks">Task Reports</a></li>
+            </ul>
+        </li> --}}
+        
 
 
          <!-- Document Management Section -->
@@ -497,14 +509,7 @@
     <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
     <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.7.2/js/dataTables.buttons.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.7.2/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.7.2/js/buttons.print.min.js"></script>
-
+    <script src="{{ asset('assets/datatables.min.js') }}"></script>
     @yield('scripts')
 </body>
 </html>

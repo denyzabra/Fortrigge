@@ -49,7 +49,7 @@
                                 <div class="col-6">
                                     <span class="text-muted mb-3 lh-1 d-block text-truncate">Total Tenants</span>
                                     <h4 class="mb-3">
-                                        <span class="counter-value" data-target="0">0</span>
+                                        {{-- <span class="counter-value" data-target="{{ $tenantCount }}">{{ $tenantCount }}</span> --}}
                                     </h4>
                                 </div>
                                 <div class="col-6">
@@ -59,6 +59,7 @@
                         </div>
                     </div>
                 </div>
+                
 
                 <div class="col-xl-3 col-md-6">
                     <div class="card card-h-100">
@@ -163,4 +164,5 @@
     <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
     <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="{{ asset('assets/datatables.min.js') }}"></script>
 @endpush

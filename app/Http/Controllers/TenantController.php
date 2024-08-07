@@ -12,7 +12,13 @@ class TenantController extends Controller
     public function index()
     {
         $tenants = Tenant::all();
+        // $totalTenants = $tenants->count(); // Get the total number of tenants
         return view('tenants.index', compact('tenants'));
+    }
+    public function dashboard(){
+        $tenantCount = Tenant::count();
+        // dd($propertyCount);
+        return view('dashboard', compact('tenantCount'));
     }
 
     public function create()
@@ -33,7 +39,6 @@ class TenantController extends Controller
         ]);
 
         Tenant::create($request->all());
-
         return redirect()->route('tenants.index')->with('success', 'Tenant created successfully.');
     }
 
@@ -48,7 +53,6 @@ class TenantController extends Controller
     {
         $tenant = Tenant::findOrFail($id);
         $properties = Property::all();
-
         return view('tenants.edit', compact('tenant', 'properties'));
     }
 
@@ -62,7 +66,6 @@ class TenantController extends Controller
         ]);
 
         $tenant->update($request->all());
-
         return redirect()->route('tenants.index')->with('success', 'Tenant updated successfully.');
     }
 

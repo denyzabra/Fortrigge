@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('content')
-<div class="container-fluid">
+<div class="whitebox">
     <div class="row">
         <!-- Sidebar -->
         <aside class="col-md-2">
@@ -27,7 +27,8 @@
                         <!-- Description -->
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea name="description" id="description" class="form-control">{{ $property->description }}</textarea>
+                            <textarea name="description" id="description" class="form-control" maxlength="500" required>{{ $property->description }}</textarea>
+                            <small id="descriptionCounter" class="form-text text-muted">{{ strlen($property->description) }}/500 characters</small>
                         </div>
 
                         <!-- Price -->
@@ -45,13 +46,15 @@
                         <!-- Location -->
                         <div class="form-group">
                             <label for="location">Location</label>
-                            <input type="text" name="location" id="location" class="form-control" value="{{ $property->location }}" required>
+                            <input type="text" name="location" id="location" class="form-control" maxlength="15" value="{{ $property->location }}" required>
+                            <small id="locationCounter" class="form-text text-muted">{{ strlen($property->location) }}/15 characters</small>
                         </div>
 
                         <!-- Address -->
                         <div class="form-group">
                             <label for="address">Address</label>
-                            <input type="text" name="address" id="address" class="form-control" value="{{ $property->address }}" required>
+                            <input type="text" name="address" id="address" class="form-control" maxlength="15" value="{{ $property->address }}" required>
+                            <small id="addressCounter" class="form-text text-muted">{{ strlen($property->address) }}/15 characters</small>
                         </div>
 
                         <!-- Housing Type -->
@@ -87,4 +90,32 @@
 </div>
 @endsection
 
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const description = document.getElementById('description');
+        const descriptionCounter = document.getElementById('descriptionCounter');
+        
+        const location = document.getElementById('location');
+        const locationCounter = document.getElementById('locationCounter');
+        
+        const address = document.getElementById('address');
+        const addressCounter = document.getElementById('addressCounter');
 
+        description.addEventListener('input', function() {
+            const remaining = 500 - description.value.length;
+            descriptionCounter.textContent = `${description.value.length}/500 characters`;
+        });
+
+        location.addEventListener('input', function() {
+            const remaining = 15 - location.value.length;
+            locationCounter.textContent = `${location.value.length}/15 characters`;
+        });
+
+        address.addEventListener('input', function() {
+            const remaining = 15 - address.value.length;
+            addressCounter.textContent = `${address.value.length}/15 characters`;
+        });
+    });
+</script>
+@endpush

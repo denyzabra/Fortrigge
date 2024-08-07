@@ -38,7 +38,7 @@
                             @foreach ($properties as $property)
                                 <tr>
                                     <td>{{ $property->name }}</td>
-                                    <td>{{ $property->description }}</td>
+                                    <td>{{ \Illuminate\Support\Str::limit($property->description, 15, '...') }}</td>
                                     <td>${{ number_format($property->price, 2) }}</td>
                                     <td>{{ $property->housingType->name }}</td>
                                     <td>{{ $property->landType->name }}</td>

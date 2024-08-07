@@ -16,6 +16,7 @@ use App\Http\Controllers\LeaseController;
 use App\Http\Controllers\ServiceProviderController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\RequestController;
+use App\Http\Controllers\TaskController;
 
 
 // login Routes
@@ -30,6 +31,8 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 Route::middleware('auth')->get('/dashboard', function () {
     return view('dashboard'); 
 })->name('dashboard');
+Route::middleware('auth')->get('/dashboard', [TenantController::class, 'dashboard'])->name('dashboard');
+
 
 
 // Route::middleware('auth')->get('/profile', function () {
@@ -50,7 +53,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('user-sessions', [UserSessionController::class, 'index'])->name('user-sessions.index');
+    // Route::get('user-sessions', [UserSessionController::class, 'index'])->name('user-sessions.index');
 });
 
 //profile 
@@ -151,6 +154,15 @@ Route::prefix('documents')->name('documents.')->group(function () {
 
 Route::get('/dashboard', [PropertyController::class, 'dashboard'])->name('dashboard');
 Route::resource('requests', RequestController::class);
+
+//Tasks
+Route::resource('tasks', TaskController::class);
+
+// Reports
+Route::get('reports/properties', [ReportController::class, 'properties'])->name('reports.properties');
+Route::get('reports/tenants', [ReportController::class, 'tenants'])->name('reports.tenants');
+Route::get('reports/tasks', [ReportController::class, 'tasks'])->name('reports.tasks');
+Route::resource('service_providers', ServiceProviderController::class);
 
 
 

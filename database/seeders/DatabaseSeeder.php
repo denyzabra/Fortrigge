@@ -19,7 +19,11 @@ class DatabaseSeeder extends Seeder
             UserTableSeeder::class,
             HousingTypesSeeder::class,
             LandTypesSeeder::class,
+            PropertySeeder::class,
+            TenantSeeder::class,
+            TaskSeeder::class,
         ]);
+
 
     }
 }
