@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('document_types', function (Blueprint $table) {
+        Schema::create('biodata', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // e.g., Property Documents, Lease Agreements
+            $table->string('file_path');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('document_types');
+        Schema::dropIfExists('biodata');
     }
 };

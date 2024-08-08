@@ -143,19 +143,20 @@
 
          <!-- Document Management Section -->
          <!-- <li class="menu-title mt-2" data-key="t-components">Document Management</li> -->
-        <li>
+         <li>
             <a href="javascript: void(0);" class="has-arrow">
                 <i data-feather="folder"></i>
                 <span data-key="t-documents">Documents</span>
             </a>
             <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ route('documents.index', ['type' => 'property']) }}" data-key="t-property-documents">Property Documents</a></li>
-                <li><a href="{{ route('documents.index', ['type' => 'lease']) }}" data-key="t-lease-agreements-docs">Lease Agreements</a></li>
-                <li><a href="{{ route('documents.index', ['type' => 'maintenance']) }}" data-key="t-maintenance-records">Maintenance Records</a></li>
-                <li><a href="{{ route('documents.index', ['type' => 'lc']) }}" data-key="t-lc-letters">LC Letters</a></li>
-                <li><a href="{{ route('documents.index', ['type' => 'biodata']) }}" data-key="t-biodata">Bio-data: Work Info</a></li>
+                <li><a href="{{ route('documents.index', ['type' => 'property']) }}" data-key="t-property-documents">Property Documents</a></li>
+                <li><a href="{{ route('lease_agreements.index') }}" data-key="t-lease-agreements-docs">Lease Agreements</a></li>
+                <li><a href="{{ route('maintenance_records.index') }}" data-key="t-maintenance-records">Maintenance Records</a></li>
+                <li><a href="{{ route('lc_letters.index') }}" data-key="t-lc-letters">LC Letters</a></li>
+                <li><a href="{{ route('biodata.index') }}" data-key="t-biodata">Bio-data: Work Info</a></li>
             </ul>
         </li>
+        
 
            <!-- Financial Management Section -->
            <li class="menu-title mt-2" data-key="t-components">Financial Management</li>

@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
             PropertySeeder::class,
             TenantSeeder::class,
             TaskSeeder::class,
+            DocumentSeeder::class,
+            DocumentTypesSeeder::class,
         ]);
 
 

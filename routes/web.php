@@ -17,6 +17,10 @@ use App\Http\Controllers\ServiceProviderController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\MaintenanceRecordController;
+use App\Http\Controllers\LeaseAgreementController;
+use App\Http\Controllers\LCLetterController;
+use App\Http\Controllers\BiodataController;
 
 
 // login Routes
@@ -145,7 +149,7 @@ Route::prefix('service-providers')->name('service-providers.')->group(function (
 
 // Documents Routes
 Route::prefix('documents')->name('documents.')->group(function () {
-    Route::get('/', [DocumentController::class, 'index'])->name('index');
+    Route::get('/', [DocumentController::class, 'index'])->name('index'); // This handles `/documents?type=...`
     Route::post('/', [DocumentController::class, 'store'])->name('store');
     Route::get('create', [DocumentController::class, 'create'])->name('create');
     Route::get('{document}', [DocumentController::class, 'show'])->name('show');
@@ -159,12 +163,24 @@ Route::resource('requests', RequestController::class);
 Route::resource('tasks', TaskController::class);
 
 // Reports
-Route::get('reports/properties', [ReportController::class, 'properties'])->name('reports.properties');
-Route::get('reports/tenants', [ReportController::class, 'tenants'])->name('reports.tenants');
-Route::get('reports/tasks', [ReportController::class, 'tasks'])->name('reports.tasks');
+// Route::get('reports/properties', [ReportController::class, 'properties'])->name('reports.properties');
+// Route::get('reports/tenants', [ReportController::class, 'tenants'])->name('reports.tenants');
+// Route::get('reports/tasks', [ReportController::class, 'tasks'])->name('reports.tasks');
 Route::resource('service_providers', ServiceProviderController::class);
 
+Route::prefix('maintenance-records')->name('maintenance_records.')->group(function () {
+    Route::get('/', [MaintenanceRecordController::class, 'index'])->name('index');
+    Route::get('create', [MaintenanceRecordController::class, 'create'])->name('create');
+    Route::post('/', [MaintenanceRecordController::class, 'store'])->name('store');
+    Route::get('{maintenanceRecord}', [MaintenanceRecordController::class, 'show'])->name('show');
+    Route::get('{maintenanceRecord}/edit', [MaintenanceRecordController::class, 'edit'])->name('edit');
+    Route::put('{maintenanceRecord}', [MaintenanceRecordController::class, 'update'])->name('update');
+    Route::delete('{maintenanceRecord}', [MaintenanceRecordController::class, 'destroy'])->name('destroy');
+});
 
+Route::resource('lease_agreements', LeaseAgreementController::class);
+Route::resource('lc_letters', LCLetterController::class);
+Route::resource('biodata', BiodataController::class);
 
 
 

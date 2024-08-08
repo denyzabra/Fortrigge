@@ -10,7 +10,14 @@ class Document extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable =[ 'document_type_id', 'property_id','file_path' ];
+    protected $fillable = [
+        'title',
+        'file_path',
+        'document_type_id',
+        'property_id',
+        'tenant_id',
+        'service_provider_id',
+    ];
 
     public function documentType()
     {
@@ -20,5 +27,13 @@ class Document extends Model
     public function property()
     {
         return $this->belongsTo(Property::class);
+    }
+    public function tenant()
+    {
+        return $this->belongsTo(Tenant::class);
+    }
+    public function serviceProvider()
+    {
+        return $this->belongsTo(ServiceProvider::class);
     }
 }
